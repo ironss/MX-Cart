@@ -32,7 +32,8 @@ def KapToVrt(kapPath):
 
 if __name__ == "__main__":        
     #print KapToVrt("C:/Users/will/Desktop/simcoe/2028B01.KAP")
-    print KapToVrt("/home/will/zxyCharts/BSB_ROOT/NOAA_BSB_ROOT/BSB_ROOT/1113A/1113A_1.KAP")
+    #print KapToVrt("/home/will/zxyCharts/BSB_ROOT/NOAA_BSB_ROOT/BSB_ROOT/1113A/1113A_1.KAP")
+    print KapToVrt("/home/will/zxyCharts/BSB_ROOT/shom/CD1/Samso Kattegat/N0S26_1.kap")
 
 
 

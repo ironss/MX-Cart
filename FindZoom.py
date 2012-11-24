@@ -48,7 +48,7 @@ def latitudedistortion(latitude):
     return cdist/hdist
 
 def getZoom(scale, latitude):
-    tweakPercent = .87
+    tweakPercent = .70
     scale = scale * latitudedistortion(latitude) * tweakPercent
     t = 30;
     while scale > 1:
@@ -68,4 +68,4 @@ def getKapZoom(kapfile):
 
 if __name__== "__main__":
     #print getKapZoom("C:/Users/will/charts/BSB_ROOT/MXCTEST/12200/12200_1.KAP")
-    print getKapZoom("/home/will/zxyCharts/BSB_ROOT/NOAA_BSB_ROOT/BSB_ROOT/1113A/1113A_1.KAP")
+    print getKapZoom("/home/will/zxyCharts/BSB_ROOT/shom/CD1/Samso Kattegat/N0S26_1.kap")
