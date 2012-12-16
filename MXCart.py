@@ -24,6 +24,9 @@ if platform.system() == "Windows":
 ConfirmEvent, EVT_CONFIRMATION = wx.lib.newevent.NewEvent()
 InThreadEvent, EVT_IN_THREAD = wx.lib.newevent.NewEvent()
 
+class BlankParent(GUI.BlankParent):
+    pass
+
 class Spinner(GUI.Spinner):
     def setMessage(self, message):
         self.msg_staticText.SetLabel(message)
@@ -92,6 +95,7 @@ class InDirDialog(GUI.InDirDialog):
     def cancelHandler(self, event):
         if (event.attr1):
             self.Destroy()
+            blankParent.Destroy()
             
     def searchFinishHandler(self, event):
         self.spinner.Destroy()
@@ -126,6 +130,7 @@ class OutDirDialog(GUI.OutDirDialog):
     def cancelHandler(self, event):
         if (event.attr1):
             self.Destroy()
+            blankParent.Destroy()
         
     def _evtDir(self, event):
         Resources.outdir = self.out_dirPicker.GetPath()
@@ -157,6 +162,7 @@ class NameDialog(GUI.NameDialog):
     def cancelHandler(self, event):
         if (event.attr1):
             self.Destroy()
+            blankParent.Destroy()
             
     def nextHandler(self, event):
         if (event.attr1):
@@ -279,6 +285,7 @@ class ProcessDialog(GUI.ProcessDialog):
 #                msgDialog.Destroy()
                 
             self.Destroy()
+            blankParent.Destroy()
             
     def nextStage(self, event):
         #print "nextStage", event.advance
@@ -318,6 +325,7 @@ class ResultsDialog(GUI.ResultsDialog):
             shutil.rmtree(os.path.abspath(Resources.getTempDir()))
         print "complete, bye now :)"
         self.Destroy()
+        blankParent.Destroy()
 
 #class Dialog(GUI.Dialog):
 #    def setStep(self, panel, child=None):
@@ -340,12 +348,14 @@ class ResultsDialog(GUI.ResultsDialog):
     
 class About(GUI.About):
     def _evtAccept(self, event):
-        dialog = InDirDialog(None);
+        dialog = InDirDialog(blankParent);
         dialog.Show()
+        self.Hide()
         self.Destroy()
         
     def _evtDecline(self, event):
         self.Destroy()
+        blankParent.Destroy()
 
 def BSBSearch():
     mSearch = RecursiveSearch(Resources.indir)
@@ -510,7 +520,9 @@ if __name__ == "__main__":
      
     pleaseContinue = True    
     
-    about = About(None)
+    blankParent = BlankParent(None)
+    
+    about = About(blankParent)
     about.title_staticText.SetLabel(Resources.version)
     about.Show()
     

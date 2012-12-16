@@ -4,23 +4,11 @@
 
 import codecs, BsbOutlines, time, os.path
 
-#        CREATE TABLE regions ( 
-#            name          TEXT,
-#            description   TEXT,
-#            image         TEXT,
-#            size          INT,
-#            installeddate INT,
-#            latestdate    INT );
-
 str0 = "UPDATE regions SET installeddate='%s' WHERE name='%s';\n"
 strcustom0 = u"DELETE from regions WHERE name='%s';\n"
 strcustom1 = u"INSERT into [regions] ([name], [description], [image], [size], [installeddate] ) VALUES ('%s', '%s', '%s', '%s', '%s');\n"
 str1 = u"DELETE from charts where region='%s';\n"
 str2 = u"INSERT INTO [charts] ([region], [file], [name], [updated], [scale], [outline], [depths]) VALUES ('%s', '%s', '%s', '%s', %s, '%s', '%s');\n"
-#dir = '/home/will/charts/gemfs_version2'
-#region = "REGION_40"
-#epoch = "1324500235"
-#epoch = "1331534724"
 custom = True;
 epoch = int(time.time())
         

@@ -17,9 +17,11 @@ def VrtToTiles(tempDir, vrtPath, zoomLevel):
     options.append(vrtPath)
     options.append('-z')
     options.append(str(zoomLevel))
+    set_nothreads()
     if platform.system() == "Windows":
         set_nothreads()
     main(options)
     
 if __name__ == "__main__":
-    VrtToTiles('/tmp/__MXCART', '/home/will/zxyCharts/BSB_ROOT/NOAA_BSB_ROOT/BSB_ROOT/1113A/1113A_1.vrt', 11)
+    #VrtToTiles('/tmp/__MXCART', '/home/will/zxyCharts/BSB_ROOT/NOAA_BSB_ROOT/BSB_ROOT/1113A/1113A_1.vrt', 11)
+    VrtToTiles("/home/will/zxyCharts/BSB_ROOT/shom/CD1/Samso Kattegat/N0S26_1_mx", "/home/will/zxyCharts/BSB_ROOT/shom/CD1/Samso Kattegat/N0S26_1.kap", 13)

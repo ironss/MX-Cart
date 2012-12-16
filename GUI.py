@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 ###########################################################################
-## Python code generated with wxFormBuilder (version Feb  9 2012)
+## Python code generated with wxFormBuilder (version Oct  8 2012)
 ## http://www.wxformbuilder.org/
 ##
 ## PLEASE DO "NOT" EDIT THIS FILE!
@@ -47,7 +47,7 @@ class About ( wx.Dialog ):
 		
 		gSizer1.Add( bSizer12, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
-		self.m_bitmap1 = wx.StaticBitmap( self, wx.ID_ANY, wx.Bitmap( u"../../share/mxcart/kattegat.png", wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_bitmap1 = wx.StaticBitmap( self, wx.ID_ANY, wx.Bitmap( u"kattegat.png", wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, 0 )
 		gSizer1.Add( self.m_bitmap1, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 		
 		
@@ -87,7 +87,7 @@ class About ( wx.Dialog ):
 		
 		bSizer2.Add( self.creditsTitle_staticText, 0, wx.ALL, 5 )
 		
-		self.credits_staticText = wx.StaticText( self.m_scrolledWindow1, wx.ID_ANY, u"GDAL - Frank Warmerdam\nGDAL Tiler - Klokan Petr Pridal\nGEMF - Allen Budden\nLibbsb - Suart Cunningham\nMXCart - Will Kamp\npngnq - Stuart Coyle\nPython - Guido Van Rossum\nTilers Tools - Vadim Shlyakhov\nWXPython - Robin Dunn", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.credits_staticText = wx.StaticText( self.m_scrolledWindow1, wx.ID_ANY, u"GDAL - Frank Warmerdam\\nGDAL Tiler - Klokan Petr Pridal\\nGEMF - Allen Budden\\nLibbsb - Suart Cunningham\\nMXCart - Will Kamp\\npngnq - Stuart Coyle\\nPython - Guido Van Rossum\\nTilers Tools - Vadim Shlyakhov\\nWXPython - Robin Dunn", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.credits_staticText.Wrap( -1 )
 		bSizer2.Add( self.credits_staticText, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND, 5 )
 		
@@ -308,6 +308,7 @@ class NameDialog ( wx.Dialog ):
 		fgSizer1.Add( self.name_staticText, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
 		self.name_textCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.name_textCtrl.SetMaxLength( 0 ) 
 		fgSizer1.Add( self.name_textCtrl, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
 		self.descs_staticText = wx.StaticText( self, wx.ID_ANY, u"Description", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -315,6 +316,7 @@ class NameDialog ( wx.Dialog ):
 		fgSizer1.Add( self.descs_staticText, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
 		self.descs_textCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.descs_textCtrl.SetMaxLength( 0 ) 
 		fgSizer1.Add( self.descs_textCtrl, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
 		
@@ -406,7 +408,7 @@ class ProcessDialog ( wx.Dialog ):
 		self.bSizer.Add( self.step4_staticText, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 		
 		self.spinner_animCtrl = wx.animate.AnimationCtrl( self, wx.ID_ANY, wx.animate.NullAnimation, wx.DefaultPosition, wx.DefaultSize, wx.animate.AC_DEFAULT_STYLE )
-		self.spinner_animCtrl.LoadFile( u"/usr/local/share/mxcart/spinner.gif" )
+		self.spinner_animCtrl.LoadFile( u"spinner.gif" )
 		
 		self.spinner_animCtrl.Play()
 		self.bSizer.Add( self.spinner_animCtrl, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
@@ -591,16 +593,11 @@ class Spinner ( wx.Dialog ):
 		self.msg_staticText.Wrap( -1 )
 		self.bSizer.Add( self.msg_staticText, 0, wx.ALL, 5 )
 		
-		self.spinner_animCtrl = wx.animate.AnimationCtrl( self, wx.ID_ANY, wx.animate.NullAnimation, wx.DefaultPosition, wx.DefaultSize, wx.animate.AC_DEFAULT_STYLE ) 
+		self.spinner_animCtrl = wx.animate.AnimationCtrl( self, wx.ID_ANY, wx.animate.NullAnimation, wx.DefaultPosition, wx.DefaultSize, wx.animate.AC_DEFAULT_STYLE )
+		self.spinner_animCtrl.LoadFile( u"spinner.gif" )
 		
 		self.spinner_animCtrl.Play()
 		self.bSizer.Add( self.spinner_animCtrl, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
-		
-		self.spinner_animCtrl1 = wx.animate.AnimationCtrl( self, wx.ID_ANY, wx.animate.NullAnimation, wx.DefaultPosition, wx.DefaultSize, wx.animate.AC_DEFAULT_STYLE )
-		self.spinner_animCtrl1.LoadFile( u"/usr/local/share/mxcart/spinner.gif" )
-		
-		self.spinner_animCtrl1.Play()
-		self.bSizer.Add( self.spinner_animCtrl1, 0, wx.ALL, 5 )
 		
 		
 		self.SetSizer( self.bSizer )
@@ -634,6 +631,24 @@ class Message2 ( wx.Dialog ):
 		self.SetSizer( self.bSizer )
 		self.Layout()
 		self.bSizer.Fit( self )
+		
+		self.Centre( wx.BOTH )
+	
+	def __del__( self ):
+		pass
+	
+
+###########################################################################
+## Class BlankParent
+###########################################################################
+
+class BlankParent ( wx.Frame ):
+	
+	def __init__( self, parent ):
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		
+		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+		
 		
 		self.Centre( wx.BOTH )
 	

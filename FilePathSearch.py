@@ -50,7 +50,7 @@ class RecursiveSearch():
             return bites
 
 if __name__== "__main__":
-    directory = "C:/Users/will/charts/BSB_ROOT/MXCTEST"
+    directory = "/home/will/zxyCharts/BSB_ROOT/NOAA_BSB_ROOT/BSB_ROOT"
     rSearch = RecursiveSearch(directory, 'kap')
     for path in rSearch.getFilePaths():
         print path
