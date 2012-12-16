@@ -1,6 +1,6 @@
 import tempfile
 
-versionNum = 1.08
+versionNum = "1.10"
 version = "MX Cart %sbeta" %(versionNum)
 
 name = ""

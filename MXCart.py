@@ -306,7 +306,7 @@ class ResultsDialog(GUI.ResultsDialog):
     def setResultMessage(self):
         numImported = Resources.numBsbFiles - len(Resources.lstBsbErrorFiles)
         gemfName = Resources.name + ".gemf"
-        dataName = Resources.name + ".data"
+        dataName = Resources.name + ".zdat"
         if len(Resources.lstBsbErrorFiles) > 0:
             print "the following BSB charts could not be read and were skipped:"
             for bsbFile in Resources.lstBsbErrorFiles:
@@ -460,7 +460,7 @@ def QuantTiles():
             pngPath = pngPath.replace("\\","/")
             #print pngPath
             if platform.system() == "Windows":
-                thisone = Popen([os.path.dirname(__file__).replace("\\","/")+'/pngnqi.exe','-s1','-g2.2','-n','256','-e','.nq8',pngPath])
+                thisone = Popen([os.getcwd().replace("\\","/")+'/pngnqi.exe','-s1','-g2.2','-n','256','-e','.nq8',pngPath])
                 #thisone = Popen([os.path.abspath(os.curdir).replace("\\","/")+'/pngnqi.exe','-s1','-g2.2','-n','256','-e','.nq8',pngPath])
             if platform.system() == "Linux":
                 thisone = Popen(['pngnq','-s1','-g2.2','-n','256','-e','.nq8', pngPath])

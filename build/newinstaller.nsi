@@ -6,8 +6,8 @@
 ; General definitions: just some constants that are referred later.
 !define PRODUCT_NAME "MX Cart"
 !define PRODUCT_VERSION_MAJOR 1
-!define PRODUCT_VERSION_MINOR 04
-!define PRODUCT_DISPLAY_VERSION "1.04"
+!define PRODUCT_VERSION_MINOR 10
+!define PRODUCT_DISPLAY_VERSION "1.10"
 !define PRODUCT_PUBLISHER "Will Kamp"
 !define PRODUCT_WEB_SITE "http://mxmariner.com/mxcart"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}" ; 

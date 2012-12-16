@@ -37,7 +37,7 @@ class About ( wx.Dialog ):
 		self.m_staticline51 = wx.StaticLine( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 		bSizer12.Add( self.m_staticline51, 0, wx.EXPAND |wx.ALL, 5 )
 		
-		self.m_staticText19 = wx.StaticText( self, wx.ID_ANY, u"Chart import utility for MX Mariner", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText19 = wx.StaticText( self, wx.ID_ANY, u"Chart import utility for MX Mariner 1.3.23+", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText19.Wrap( -1 )
 		bSizer12.Add( self.m_staticText19, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 		
@@ -74,7 +74,7 @@ class About ( wx.Dialog ):
 		self.about_staticText.Wrap( -1 )
 		bSizer2.Add( self.about_staticText, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL|wx.EXPAND, 5 )
 		
-		self.m_staticText23 = wx.StaticText( self.m_scrolledWindow1, wx.ID_ANY, u"Converted charts are exported to a file compatible with MX Mariner.", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText23 = wx.StaticText( self.m_scrolledWindow1, wx.ID_ANY, u"Converted charts are exported to a file compatible with MX Mariner version 1.3.23 and later.", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText23.Wrap( -1 )
 		bSizer2.Add( self.m_staticText23, 0, wx.ALL, 5 )
 		
