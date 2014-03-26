@@ -3,18 +3,17 @@ import tempfile
 versionNum = "1.10"
 version = "MX Cart %sbeta" %(versionNum)
 
-name = ""
+name = "NZMARINER_2014_02"
 nameNotAllowedMsg = "Names cannot begin with REGION_ or region_."
-description = ""
+description = "LINZ NZMariner update 2014_02"
+quantize = True
 
-indir = ""
-outdir = ""
+indir = "/home/ironss/projects/BSB_ROOT"
+outdir = "/home/ironss/projects/BSB_ROOT"
 __tempdir = "/__MXCART"
 
 def getTempDir():
     return (tempfile.gettempdir() + __tempdir).replace("\\","/")
-
-quantize = False
 
 lstBsbFiles = []
 lstBsbErrorFiles = []

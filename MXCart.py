@@ -117,6 +117,7 @@ class OutDirDialog(GUI.OutDirDialog):
         dialog = NameDialog(None)
         dialog.name_textCtrl.SetValue(Resources.name)
         dialog.descs_textCtrl.SetValue(Resources.description)
+        dialog.pngnq_checkBox.SetValue(Resources.quantize)
         dialog.Show()
         self.Destroy()
         
@@ -184,6 +185,7 @@ class NameDialog(GUI.NameDialog):
             useUpper = False
         
         val = str(event.GetEventObject().GetValue())
+        
         if useUpper:
             newval = re.sub(r'\W+', replaceChar, val).lstrip().upper() #remove any non words and force uppercase
         else:
@@ -192,7 +194,9 @@ class NameDialog(GUI.NameDialog):
             event.GetEventObject().SetValue(newval)
             event.GetEventObject().SetInsertionPointEnd()
         Resources.name = self.name_textCtrl.GetValue()
-        Resources.description = self.descs_textCtrl.GetValue()
+        description = self.descs_textCtrl.GetValue()
+        if description != '':
+           Resources.description = description
         if len(Resources.name) > 0 and len(Resources.description) > 0:
             self.next_button.Enable()
         else:
@@ -349,6 +353,10 @@ class ResultsDialog(GUI.ResultsDialog):
 class About(GUI.About):
     def _evtAccept(self, event):
         dialog = InDirDialog(blankParent);
+        dialog.in_dirPicker.SetPath(Resources.indir)
+        if (Resources.indir != ""):
+            dialog.next_button.Enable()
+            
         dialog.Show()
         self.Hide()
         self.Destroy()
@@ -458,7 +466,6 @@ def QuantTiles():
         pngList = RecursiveSearch(Resources.getTempDir() + "/merge", ".png")
         for pngPath in pngList.getFilePaths():
             pngPath = pngPath.replace("\\","/")
-            #print pngPath
             if platform.system() == "Windows":
                 thisone = Popen([os.getcwd().replace("\\","/")+'/pngnqi.exe','-s1','-g2.2','-n','256','-e','.nq8',pngPath])
                 #thisone = Popen([os.path.abspath(os.curdir).replace("\\","/")+'/pngnqi.exe','-s1','-g2.2','-n','256','-e','.nq8',pngPath])
